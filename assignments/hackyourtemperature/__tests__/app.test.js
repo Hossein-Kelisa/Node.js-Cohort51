@@ -5,7 +5,9 @@ const request = supertest(app);
 
 describe('POST /weather', () => {
     it('should return 400 if no cityName is provided', async () => {
-      const response = await request.post('/weather').send({});
+      const response = await request
+      .post('/weather')
+      .send({});
       expect(response.status).toBe(400);
       expect(response.body).toEqual({
           weatherText: 'City name is required!'
